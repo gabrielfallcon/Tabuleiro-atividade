@@ -125,6 +125,17 @@ class Tabuleiro extends React.Component {
     }
     
   }
+  handleClick (i) {
+    const quadrados = this.state.quadrados.slice();
+    if (quadrados[i]) {
+     alert ("Posição ocupada");
+     return; 
+    }
+    quadrados[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState ({
+      quadrados: quadrados, xIsNext: !this.state.xIsNext
+    });
+}
   
   renderizarQuadrado(i) {
     return (
