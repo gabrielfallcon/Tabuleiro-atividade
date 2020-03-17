@@ -110,34 +110,6 @@ class Tabuleiro extends React.Component {
       quadrados: quadrados, xIsNext: true, gameEnded: false
     });
   }
-
-    randomPlay() {
-      const quadrados = this.state.quadrados;
-      const player = this.state.xIsNext;
-      if(this.state.gameEnded === true) {
-        return alert('O jogo terminou, clique em restart para jogar novamente!');
-      }
-      let i = checkNextPlay(quadrados, player);
-      while(quadrados[i] !== null) {
-        i = Math.floor(Math.random() * (9 - 0)) + 0;
-      }
-      if (i !== null) {
-        return this.handleClick(i);
-      }
-      
-    }
-  
-    handleClick (i) {
-      const quadrados = this.state.quadrados.slice();
-      if (quadrados[i]) {
-       alert ("Posição ocupada");
-       return; 
-      }
-      quadrados[i] = this.state.xIsNext ? 'X' : 'O';
-      this.setState ({
-        quadrados: quadrados, xIsNext: !this.state.xIsNext
-      });
-  }
   
   renderizarQuadrado(i) {
     return (
